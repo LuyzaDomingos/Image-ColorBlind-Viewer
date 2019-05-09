@@ -1,29 +1,34 @@
 
 clear all
 
-imagemRGB = im2double(imread('candy.png'));
+imagemRGB = im2double(imread('arara.png'));
 
-%[imagemDeut error] = deuteranopia(imagemRGB);
-%imagemAjuste = daltonico(imagemRGB, error);
-%[imagemFim error2] = deuteranopia(imagemAjuste);
-%
-%figure(1)
-%imshow(imagemRGB)
-%title('Original Image')
-%
-%figure(2)
-%imshow(imagemDeut)
-%title('Image as seen by Deuteranopia Patient')
-%
-%figure(3)
-%imshow(imagemAjuste)
-%title('Image adjusted for Deuteranopia Patient')
-%
-%figure(4)
-%imshow(imagemFim)
-%title('Adjusted image as seen by Deuteranopia Patient')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Deuteronopia
+
+[imagemDeut error] = deuteranopia(imagemRGB);
+imagemAjuste = daltonico(imagemRGB, error);
+[imagemFim error2] = deuteranopia(imagemAjuste);
+
+figure(1)
+imshow(imagemRGB)
+title('Imagem Original')
+
+figure(2)
+imshow(imagemDeut)
+title('Como a imagem é vista pela pessoa com Deuteranopia')
+
+figure(3)
+imshow(imagemAjuste)
+title('Imagem "ajustada" para o pessoa com Deuteranopia')
+
+figure(4)
+imshow(imagemFim)
+title('Como a imagem "ajustada" é vista pela pessoa com Deuteranopia')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Protanopia
+
 %
 %[imagemProt error] = protanopia(imagemRGB);
 %imagemAjuste = daltonico(imagemRGB, error);
@@ -31,38 +36,20 @@ imagemRGB = im2double(imread('candy.png'));
 %
 %figure(5)
 %imshow(imagemRGB)
-%title('Original Image')
+%title('Imagem Original')
 %
 %figure(6)
 %imshow(imagemProt)
-%title('Image as seen by Protanopia Patient')
+%title('Como a imagem é vista pela pessoa com Protanopia')
 %
 %figure(7)
 %imshow(imagemAjuste)
-%title('Image adjusted for Protanopia Patient')
+%title('Imagem "ajustada" para a pessoa com Protanopia')
 %
 %figure(8)
 %imshow(imagemFim)
-%title('Adjusted image as seen by Protanopia Patient')
+%title('Como a imagem "ajustada" é vista pela pessoa com Protanopia')
+%
+%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-[imagemTri error] = tritanopia(imagemRGB);
-imagemAjuste = daltonico(imagemRGB, error);
-[imagemFim error2] = tritanopia(imagemAjuste);
-
-figure(9)
-imshow(imagemRGB)
-title('Original Image')
-
-figure(10)
-imshow(imagemTri)
-title('Image as seen by Tritanopia Patient')
-
-figure(11)
-imshow(imagemAjuste)
-title('Image adjusted for tritanopia Patient')
-
-figure(12)
-imshow(imagemFim)
-title('Adjusted image as seen by tritanopia Patient')
